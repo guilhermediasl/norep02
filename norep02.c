@@ -30,4 +30,14 @@
 #include <stdio.h>
 #include <stdio.h>
 
+#define NUMCOL 6
+#define NUMLIN 100
+
+int main(void)
+{
+    int con, lin;
+    for(lin=0; lin <= NUMLIN; lin++)
+    {
+        for(col=0; con <= NUMCOL; con++)
+        {}}}
 
