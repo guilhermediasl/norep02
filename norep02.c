@@ -36,14 +36,17 @@
 
 int main(void)
 {
-    int con[6], i, t, assist, temp = 0;
-    srand(time(NULL));
+    int con[6], i, t, j, assist, temp = 0;
+    for(j=1; j<=NUMLIN ; j++)
+    {
+    //srand(1);
 
     for(t=0; t<=NUMCOL; t++)
         con[t] = -1;
 
     for(i=0; i<=NUMCOL; i++)
     {
+        srand(time(NULL));
         assist = rand()%6;
         for(t=0; t<=NUMCOL; t++)
         {
@@ -62,6 +65,7 @@ int main(void)
                 printf("%d\t", con[t]);
     }
         printf("\n");
+    }
     return EXIT_SUCCESS;
 }
 
