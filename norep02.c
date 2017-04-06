@@ -28,44 +28,27 @@
  */
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <stdio.h>
 
-#define NUMCOL 5
+#define NUMCOL 6
 #define NUMLIN 100
 
 int main(void)
 {
-    int con[6], i, t, j, assist, temp = 0;
-    for(j=1; j<=NUMLIN ; j++)
-    {
-    //srand(1);
-
-    for(t=0; t<=NUMCOL; t++)
+    int con[5], lin, i, t;
+    for(t=0; t<=NUMLIN; t++)
         con[t] = -1;
-
-    for(i=0; i<=NUMCOL; i++)
+    for(i=0; i <= NUMLIN; i++)
     {
-        srand(time(NULL));
-        assist = rand()%6;
-        for(t=0; t<=NUMCOL; t++)
+        con[i] = srand()%6;
+        for(t=0; t<=NUMLIN; t++)
         {
-            if(con[t] == assist)
-            {
+            if(con[t] == con[i])
                 i--;
-                temp++;
-            }
+            else
+                printf("%d\t", con[i]
         }
-        if(temp != 1)
-            con[i] = assist;
-        temp = 0;
-        }
-    for(t=0; t<=NUMCOL; t++)
-    {
-                printf("%d\t", con[t]);
-    }
-        printf("\n");
     }
     return EXIT_SUCCESS;
-}
+    }
 
