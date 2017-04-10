@@ -32,12 +32,13 @@
 
 #define NUMCOL 6
 
-int *norep(int inic,fim) /*Quando feita a chamada, deve ser feita especificando norep(inicil,fim)*/
+int *norep(int inic,int fim) /*Quando feita a chamada, deve ser feita especificando norep(inicil,fim)*/
 {
-    int con[NUMCOL], i, t;
-    for(t=0; t < NUMCOL; t++)
+    int limites = fim-inic + 1;
+    int con[limites], i, t;
+    for(t=0; t < limites; t++)
         con[t] = -1;
-    for(i=0; i < NUMCOL; i++)
+    for(i=0; i < limites; i++)
     {
         con[i] = inic + rand()%(inic - fim);
         for(t=0; t < i; t++)
