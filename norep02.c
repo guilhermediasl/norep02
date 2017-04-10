@@ -36,14 +36,14 @@
 int *norep(void)
 {
     int con[NUMCOL], i, t;
-    for(t=0; t < NUMCOL; t++)
+    for(t=0; t < NUMCOL; t++) /*Preenche o vetor com -1, para a funcao seguinte subestituir*/
         con[t] = -1;
     for(i=0; i < NUMCOL; i++)
     {
         con[i] = rand()%6;
         for(t=0; t < i; t++)
         {
-            if(con[t] == con[i])
+            if(con[t] == con[i]) /*Caso o numero seja repetido, o indice regride para ser subestituido novamente*/
                 i--;
         }
     }
