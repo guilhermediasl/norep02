@@ -1,6 +1,5 @@
 /* ************************************************************************ *
- *    PROGRAM_NAME, VERSION                                                 *
- *    BRIEF_DESCRIPTION                                                     *
+ *    Funcao que retorna 6 numeros aleatorios, sem repeticao.               *
  *                                                                          *
  *    Copyright (C) 2015 by Nome Completo                                   *
  *                                                                          *
@@ -28,38 +27,41 @@
  */
 
 #include <stdio.h>
-#include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 
 #define NUMCOL 6
 #define NUMLIN 100
 
-int norep(void)
+int *norep(void)
 {
-    int con[5], i, t;
-    for(t=0; t <= NUMLIN; t++)
+    int con[NUMCOL], i, t;
+    for(t=0; t < NUMCOL; t++)
         con[t] = -1;
-    for(i=0; i <= NUMLIN; i++)
+    for(i=0; i < NUMCOL; i++)
     {
         con[i] = rand()%6;
-        for(t=0; t<= NUMLIN; t++)
+        for(t=0; t < i; t++)
         {
             if(con[t] == con[i])
                 i--;
-            else
-                return con[i];
         }
     }
+    return con;
 }
 
 int main(void)
 {
+    int i, j, *con;
     srand(time(NULL));
-    int i;
-    norep(int ran);
-    for(i=0; i < 6 ;i++)
-        printf("%d \t",ran);
-
-    printf("\n");
+    for(j=0; j < NUMLIN; j++)
+    {   
+    con = norep();
+        for(i=0; i < NUMCOL ;i++)
+        {
+            printf("%d\t", con[i]);
+        }
+        printf("\n");
+    }
     return EXIT_SUCCESS;
 }
